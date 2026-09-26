@@ -1,0 +1,42 @@
+@Esperancilla_WebAPI_HostAddress = http://localhost:5261
+
+### Get all products
+GET {{Esperancilla_WebAPI_HostAddress}}/api/Product
+Accept: application/json
+
+### Create a product
+POST {{Esperancilla_WebAPI_HostAddress}}/api/Product
+Content-Type: application/json
+
+{
+  "name": "Mouse",
+  "price": 25.00,
+  "stock": 10
+}
+
+### Get product by id
+GET {{Esperancilla_WebAPI_HostAddress}}/api/Product/1
+Accept: application/json
+
+### Search first product by name
+GET {{Esperancilla_WebAPI_HostAddress}}/api/Product/search/phone
+Accept: application/json
+
+### Update product
+PUT {{Esperancilla_WebAPI_HostAddress}}/api/Product/1
+Content-Type: application/json
+
+{
+  "name": "Wireless Mouse",
+  "price": 30.00,
+  "stock": 15
+}
+
+### Delete product
+DELETE {{Esperancilla_WebAPI_HostAddress}}/api/Product/1
+
+### Search products by partial name
+GET {{Esperancilla_WebAPI_HostAddress}}/api/Product/SearchPartialProductName/ap
+Accept: application/json
+
+###
