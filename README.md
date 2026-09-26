@@ -63,3 +63,13 @@ Example POST body:
 ```
 
 Every endpoint has a ready-to-send request in `Esperancilla_WebAPI/Esperancilla_WebAPI.http`. Visual Studio can send them from the editor.
+
+## Troubleshooting
+
+### `Update-Database` fails with "You must install or update .NET to run this application"
+
+The project targets .NET 8, and the EF Core tools start on the project's runtime. If the PC only has a newer runtime installed (for example .NET 10), the tools can't find .NET 8 and stop with this error.
+
+The project file sets `<RollForward>Major</RollForward>`, so the tools and the app use the newer runtime instead. If you still see the error:
+- Add that line inside `<PropertyGroup>` in your `.csproj`, **Rebuild**, and run `Update-Database` again, **or**
+- install the [.NET 8 runtime (x64)](https://dotnet.microsoft.com/download/dotnet/8.0).
